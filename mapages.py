@@ -10,9 +10,10 @@ class window(tk.Tk):
      def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
 
-        zprava = tk.Toplevel()
-        textove_pole = tk.Text(zprava, width=100)
-        textove_pole.pack()
+        zprava = tk.Toplevel(self)
+        self.textove_pole = tk.Text(zprava, width=100)
+        self.textove_pole.pack()
+
 
 
         container = tk.Frame(self)
@@ -23,7 +24,7 @@ class window(tk.Tk):
 
         self.frames = {}
 
-        for F in (PageOne, PageTwo):
+        for F in (PageOne, PageTwo, PageThree):
 
             karel = F(container, self)
             self.frames[F] = karel
@@ -36,6 +37,12 @@ class window(tk.Tk):
             karel = self.frames[ignac]
             karel.tkraise()
 
+     def inzerce(self, index, string):
+         self.textove_pole.insert(index, string)
+
+     def hledej(self):
+         self.textove_pole.get()
+
 class PageOne(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
@@ -43,13 +50,27 @@ class PageOne(tk.Frame):
         row1.grid(column=0, row=0)
 
         btnBack = tk.Button(self, text="Ambulantni",
-                            command=lambda: controller.show_frame(PageTwo))
+                            command=lambda: controller.show_frame(PageThree) + controller.inzerce("end", "Pacient přichází do ambulance "))
         btnBack.grid(row=1, column=3)
 
-        btn_hospitalizovany = tk.Button(self, height=1, width=12, text="Hospitalizovaný",
-                                        command= lambda: controller.show_frame(PageTwo))
+        btn_hospitalizovany = tk.Button(self, height=1, width=12, text="Hospitalizovaný", command= lambda: controller.show_frame(PageTwo) + controller.inzerce("end", "Pacient je hospitalizován") )
         btn_hospitalizovany.grid(column=4, row=1)
 
+class PageThree(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self, text="O jaké stádium potíží se jedná?")
+        label.grid(row=0, column=0)
+
+        btnBack = tk.Button(self, text="Zpět", command=lambda: controller.show_frame(PageOne))# + back_tlacitko1())
+        btnBack.grid(row=1, column=4)
+
+        btnAkut = tk.Button(self, text = "Akutní", command=lambda : controller.show_frame(PageTwo) + controller.inzerce("end", "pro náhle vzniklé "))
+        btnAkut.grid(row=1, column=1)
+        btnChronic = tk.Button(self, text = "Chronické", command=lambda : controller.show_frame(PageTwo) + controller.inzerce("end", "pro dlouhotrvající "))
+        btnChronic.grid(row=1, column=2)
+        btnRelaps = tk.Button(self, text = "Relaps", command=lambda : controller.show_frame(PageTwo) + controller.inzerce("end", "pro zhoršení "))
+        btnRelaps.grid(row=1, column=3)
 class PageTwo(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
