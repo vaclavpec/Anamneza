@@ -36,7 +36,7 @@ def uvodni_slovo_ambulantni():
     if celytext.find(hospitalizovany_text) >= 0:
         textove_pole.delete(celytext.find(hospitalizovany_text), celytext.find(hospitalizovany_text) + len(hospitalizovany_text))
 
-    textove_pole.insert(0, ambulantni_text)
+    textove_pole.insert(END, ambulantni_text)
 
 def uvodni_slovo_hospitalizovany():
     #variables used in this button function
@@ -48,7 +48,7 @@ def uvodni_slovo_hospitalizovany():
         textove_pole.delete(celytext.find(ambulantni_text),  celytext.find(ambulantni_text)+len(ambulantni_text))
     if celytext.find(hospitalizovany_text) >= 0:
         textove_pole.delete(celytext.find(hospitalizovany_text), celytext.find(hospitalizovany_text) + len(hospitalizovany_text))
-    textove_pole.insert(0, hospitalizovany_text)
+    textove_pole.insert(END, hospitalizovany_text)
 
 ##row1 buttons
 btn_ambulantni = tk.Button(inter, height=1, width=10, text="Ambulantní", command =uvodni_slovo_ambulantni)

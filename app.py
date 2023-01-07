@@ -27,6 +27,7 @@ def uvodni_slovo_ambulantni():
     ##textove_pole.delete(0,"end")
     textove_pole.insert(0, "Pacient přichází do ambulance pro ")
 
+
 def uvodni_slovo_hospitalizovany():
     ##textove_pole.delete(0,"end")
     textove_pole.insert(0, "Pacient je hospitalizován pro ")

@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import *
+from PIL import Image, ImageTk
+
 
 
 zprava = tk.Tk()
@@ -8,7 +10,7 @@ zprava.title("Výstup")
 
 
 ##trying out tk.Entry command for unlimited text-insertion space
-textove_pole = tk.Entry(zprava, width=600)
+textove_pole = tk.Text(zprava, width=600)
 textove_pole.grid(row=0, column=1)
 
 labelPrijeti = tk.Label(zprava, text = "Důvod k přijetí nebo ošetření:")
@@ -19,7 +21,6 @@ labelSocialni.grid(row=2, column=0)
 
 socialni_pole = tk.Entry(zprava, width=600)
 socialni_pole.grid(row=2, column=1)
-
 
 
 def fceambu():
@@ -90,16 +91,22 @@ class inter(tk.Tk):
 class Page1(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
-        row1 = tk.Label(self, text="Je pacient ambulatní nebo je hospitalizován? ", wraplength=300)
+        BgImage = ImageTk.PhotoImage(Image.open("silueta_zpredu_2.png"))
+        canvas = tk.Canvas(self, width=600, height=400)
+        canvas.grid(column=0, row=0)
+        bg = canvas.create_image(self, image=BgImage)
+
+        row1 = tk.Label(canvas, text="Je pacient ambulatní nebo je hospitalizován? ", wraplength=300)
         row1.grid(column=0, row=0)
 
-        btnBack = tk.Button(self, text="Ambulantni",
+        btnBack = tk.Button(canvas, text="Ambulantni",
                             command=lambda: controller.show_frame(Page2) + fceambu())
         btnBack.grid(row=1, column=3)
 
-        btn_hospitalizovany = tk.Button(self, height=1, width=12, text="Hospitalizovaný",
+        btn_hospitalizovany = tk.Button(canvas, height=1, width=12, text="Hospitalizovaný",
                                         command= lambda: controller.show_frame(Page2) + fcehospi())
         btn_hospitalizovany.grid(column=4, row=1)
+
 
 
 class Page3(tk.Frame):
@@ -163,6 +170,9 @@ class PageSoc1(tk.Frame):
 
         #btnBack = tk.Button(self, text="Zpět", command=lambda: controller.show_frame(Page1) + back_tlacitko1())
         #btnBack.grid(row=1, column=4)
+
+
+
 
 app = inter()
 app.mainloop()

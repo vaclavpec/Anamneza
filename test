@@ -1,0 +1,31 @@
+import Tkinter as tk
+
+class Test(tk.Tk):
+
+    def __init__(self):
+
+        tk.Tk.__init__(self)
+
+        self.e = tk.Entry(self)
+        self.e.pack()
+        self.e.bind("<KeyRelease>", self.on_KeyRelease)
+
+        tk.mainloop()
+
+
+
+    def on_KeyRelease(self, event):
+
+        #Check to see if string consists of only integers
+        if self.e.get().isdigit() == False:
+
+            self.e.delete("BLANK", 'end')#I need to replace 0 with the last character of the string
+
+        else:
+            #print the string of integers
+            print self.e.get()
+
+
+
+
+test = Test()
