@@ -23,7 +23,7 @@ class window(tk.Tk):
 
         self.frames = {}
 
-        for F in (PageOne, PageTwo, PageThree, PageFour):
+        for F in (PageOne, PageTwo, PageThree, PageFour, PageFive, PageSix, PageSeven):
 
             frame = F(container, self)
             self.frames[F] = frame
@@ -201,44 +201,77 @@ class PageTwo(tk.Frame):
             oblast.append(sum(seznam[49:57:])) #[5] LHK
             oblast.append(sum(seznam[27:38:])) #[6] LDK
             oblast.append(sum(seznam[38:49:])) #[7] PDK
-            print(oblast)
 
             if oblast[0] >= 1 and sum(oblast[1:8:]) ==0:
-                controller.inzerce("end", "v oblasti hlavy.")
+                controller.inzerce("end", "v oblasti hlavy. ")
             if oblast[1] >= 1 and sum(oblast[2:8:]) == 0 and oblast[0] == 0:
-                controller.inzerce("end", "v oblasti krku.")
+                controller.inzerce("end", "v oblasti krku. ")
             if oblast[2] >= 1 and sum(oblast[3:8:]) == 0 and sum(oblast[0:2:]) == 0:
-                controller.inzerce("end", "v oblasti hrudníku.")
+                controller.inzerce("end", "v oblasti hrudníku. ")
             if oblast[3] >= 1 and sum(oblast[4:8:]) == 0 and sum(oblast[0:3:]) == 0:
-                controller.inzerce("end", "v oblasti břicha.")
+                controller.inzerce("end", "v oblasti břicha. ")
             if oblast[4] >= 1 and sum(oblast[5:8:]) == 0 and sum(oblast[0:4:]) == 0:
-                controller.inzerce("end", "v oblasti LHK.")
+                controller.inzerce("end", "v oblasti LHK. ")
             if oblast[5] >= 1 and sum(oblast[6:8:]) == 0 and sum(oblast[0:5:]) == 0:
-                controller.inzerce("end", "v oblasti PHK.")
+                controller.inzerce("end", "v oblasti PHK. ")
             if oblast[6] >= 1 and sum(oblast[0:6:]) == 0 and oblast[7] == 0:
-                controller.inzerce("end", "v oblasti PDK.")
+                controller.inzerce("end", "v oblasti PDK. ")
             if oblast[7] >= 1 and sum(oblast[0:7:]) ==0:
-                controller.inzerce("end", "v oblasti LDK.")
+                controller.inzerce("end", "v oblasti LDK. ")
 
-        #    if sum(seznam[0:8:]) >=1:
-        #        controller.inzerce("end", "v oblasti hlavy")
-         #   if  (sum(seznam[0:8:]) >=1) and (seznam[26] >=1 or sum(seznam[16:18:]) >=1 or sum(seznam[8:10:]) >=1):
-          #      controller.inzerce("end", ", krku")
-           # elif seznam[26] >=1 or sum(seznam[16:18:]) >=1 or sum(seznam[8:10:]) >=1:
-          #       controller.inzerce("end", "v oblasti krku")
-           # if sum(seznam[10:13:]) >=1 or sum(seznam[18:21:]) >=1 or sum(seznam[24:26:]) >=1:
-            #    controller.inzerce("end", "v oblasti hrudníku ")
-          #  if sum(seznam[13:16:]) >= 1 or sum(seznam[21:25:]) >=1:
-           #     controller.inzerce("end", "v oblasti břicha ")
-            #if sum(seznam[57:63:]) >= 1:
-             #   controller.inzerce("end", "v oblasti LHK ")
-            #if sum(seznam[49:57:]) >= 1:
-            #    controller.inzerce("end", "v oblasti PHK ")
-            #if sum(seznam[27:38:]) >= 1:
-             #   controller.inzerce("end", "v oblasti PDK ")
-            #if sum(seznam[38:49:]) >= 1:
-             #   controller.inzerce("end", "v oblasti LDK ")
+            if oblast[0] >= 1 and sum(oblast[1:8:]) >= 1:
+                controller.inzerce("end", "v oblasti hlavy")
 
+            if oblast[1] >= 1 and sum(oblast[2:8:]) >= 1 and oblast[1] >= 1:
+                controller.inzerce("end", ", krku")
+            if oblast[1] >= 1 and sum(oblast[2:8:]) >= 1 and oblast[1] == 0:
+                controller.inzerce("end", "v oblasti krku")
+            if oblast[1] >= 1 and sum(oblast[2:8:]) == 0 and oblast[1] >= 1:
+                controller.inzerce("end", " a krku. ")
+
+            if oblast[2] >= 1 and sum(oblast[3:8:]) >= 1 and sum(oblast[0:2:]) >= 1:
+                controller.inzerce("end", ", hrudníku")
+            if oblast[2] >= 1 and sum(oblast[3:8:]) >= 1 and sum(oblast[0:2:]) == 0:
+                controller.inzerce("end", "v oblasti hrudníku")
+            if oblast[2] >= 1 and sum(oblast[3:8:]) == 0 and sum(oblast[0:2:]) >= 1:
+                controller.inzerce("end", " a hrudníku. ")
+
+
+
+
+            if oblast[3] >= 1 and sum(oblast[4:8:]) >= 1 and sum(oblast[0:3:]) >= 1:
+                controller.inzerce("end", ", břicha")
+            if oblast[3] >= 1 and sum(oblast[4:8:]) >= 1 and sum(oblast[0:3:]) == 0:
+                controller.inzerce("end", "v oblasti břicha")
+            if oblast[3] >= 1 and sum(oblast[4:8:]) == 0 and sum(oblast[0:3:]) >= 1:
+                controller.inzerce("end", " a břicha. ")
+
+            if oblast[4] >= 1 and sum(oblast[5:8:]) >= 1 and sum(oblast[0:4:]) >= 1:
+                controller.inzerce("end", ", LHK")
+            if oblast[4] >= 1 and sum(oblast[5:8:]) >= 1 and sum(oblast[0:4:]) == 0:
+                controller.inzerce("end", "v oblasti LHK")
+            if oblast[4] >= 1 and sum(oblast[5:8:]) == 0 and sum(oblast[0:4:]) >= 1:
+                controller.inzerce("end", " a LHK. ")
+
+
+            if oblast[5] >= 1 and sum(oblast[6:8:]) >= 1 and sum(oblast[0:5:]) >= 1:
+                controller.inzerce("end", ", PHK")
+            if oblast[5] >= 1 and sum(oblast[6:8:]) >= 1 and sum(oblast[0:5:]) == 0:
+                controller.inzerce("end", "v oblasti PHK")
+            if oblast[5] >= 1 and sum(oblast[6:8:]) == 0 and sum(oblast[0:5:]) >= 1:
+                controller.inzerce("end", " a PHK. ")
+
+            if oblast[6] >= 1 and sum(oblast[0:6:]) >= 1 and oblast[7] >= 1:
+                controller.inzerce("end", ", PDK")
+            if oblast[6] >= 1 and sum(oblast[0:6:]) >= 1 and oblast[7] == 0:
+                controller.inzerce("end", "v oblasti PDK")
+            if oblast[6] >= 1 and sum(oblast[0:6:]) == 0 and oblast[7] >= 1:
+                controller.inzerce("end", " a PDK. ")
+
+            if oblast[7] >= 1 and sum(oblast[0:7:]) >= 1:
+                controller.inzerce("end", " a LDK.")
+
+            controller.show_frame(PageFive)
 
 
 
@@ -535,6 +568,536 @@ class PageTwo(tk.Frame):
 
         RR_manus_med = teloButton(228, 277, "mapa_tela/RR_manus_medialis.png", canvas, 63)
         GG_manus_med = teloButton(228, 277, "mapa_tela/GG_manus_medialis.png", canvas, 63)
+
+class PageFive(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self,
+                         text="Označte prosím, jeden a více čtverečků, které vystihují bolesti, jaké jste měl(a) minulý týden.",
+                         font="Times")
+        label.grid(row=0, column=0, columnspan=2)
+        label1 = tk.Label(self,
+                         text="Jakmile butete spokojeni s výběrem odpovědí, klikněte na \"OK\"",
+                         font="Times")
+        label1.grid(row=7, column=1)
+
+
+        def ok_fce1():
+            def ok_fce():
+                seznam = []
+                for i in (range(0, 15, 1)):
+                    seznam.append(seznamVar[i].get())
+                if sum(seznam[0:15]) >= 1:
+                    controller.inzerce("end", "Pacient udává, že bolest je: ")
+                if seznam[0] == 1 and sum(seznam[1:15]) == 0:
+                    controller.inzerce("end", "pulzující (" + str(self.varb0.get()) + "/3).")
+                if seznam[0] == 1 and sum(seznam[1:15]) >= 1:
+                    controller.inzerce("end", "pulzující (" + str(self.varb0.get()) + "/3)")
+
+                if seznam[1] >= 1 and sum(seznam[2:15]) == 0 and seznam[0] == 0:
+                    controller.inzerce("end", "vystřelující (" + str(self.varb1.get()) + "/3).")
+                if seznam[1] >= 1 and sum(seznam[2:15]) >= 1 and seznam[0] >= 1:
+                    controller.inzerce("end", ", vystřelující (" + str(self.varb1.get()) + "/3)")
+                if seznam[1] >= 1 and sum(seznam[2:15]) >= 1 and seznam[0] == 0:
+                    controller.inzerce("end", "vystřelující (" + str(self.varb1.get()) + "/3)")
+                if seznam[1] >= 1 and sum(seznam[2:15]) == 0 and seznam[0] >= 1:
+                    controller.inzerce("end", ", vystřelující (" + str(self.varb1.get()) + "/3).")
+                if seznam[2] >= 1 and sum(seznam[3:15]) == 0 and sum(seznam[0:2]) == 0:
+                    controller.inzerce("end", "bodavá (" + str(self.varb2.get()) + "/3).")
+                if seznam[2] >= 1 and sum(seznam[3:15]) >= 1 and sum(seznam[0:2]) >= 1:
+                    controller.inzerce("end", ", bodavá (" + str(self.varb2.get()) + "/3)")
+                if seznam[2] >= 1 and sum(seznam[3:15]) >= 1 and sum(seznam[0:2]) == 0:
+                    controller.inzerce("end", "bodavá (" + str(self.varb2.get()) + "/3)")
+                if seznam[2] >= 1 and sum(seznam[3:15]) == 0 and sum(seznam[0:2]) >= 1:
+                    controller.inzerce("end", " a bodavá (" + str(self.varb2.get()) + "/3).")
+                if seznam[3] >= 1 and sum(seznam[4:15]) == 0 and sum(seznam[0:3]) == 0:
+                    controller.inzerce("end", "ostrá (" + str(self.varb3.get()) + "/3).")
+                if seznam[3] >= 1 and sum(seznam[4:15]) >= 1 and sum(seznam[0:3]) >= 1:
+                    controller.inzerce("end", ", ostrá (" + str(self.varb3.get()) + "/3)")
+                if seznam[3] >= 1 and sum(seznam[4:15]) >= 1 and sum(seznam[0:3]) == 0:
+                    controller.inzerce("end", "ostrá (" + str(self.varb3.get()) + "/3)")
+                if seznam[3] >= 1 and sum(seznam[4:15]) == 0 and sum(seznam[0:3]) >= 1:
+                    controller.inzerce("end", " a ostrá (" + str(self.varb3.get()) + "/3).")
+                if seznam[4] >= 1 and sum(seznam[5:15]) == 0 and sum(seznam[0:4]) == 0:
+                    controller.inzerce("end", "křečovitá (" + str(self.varb4.get()) + "/3).")
+                if seznam[4] >= 1 and sum(seznam[5:15]) >= 1 and sum(seznam[0:4]) >= 1:
+                    controller.inzerce("end", ", křečovitá (" + str(self.varb4.get()) + "/3)")
+                if seznam[4] >= 1 and sum(seznam[5:15]) >= 1 and sum(seznam[0:4]) == 0:
+                    controller.inzerce("end", "křečovitá (" + str(self.varb4.get()) + "/3)")
+                if seznam[4] >= 1 and sum(seznam[5:15]) == 0 and sum(seznam[0:4]) >= 1:
+                    controller.inzerce("end", " a křečovitá (" + str(self.varb4.get()) + "/3).")
+                if seznam[5] >= 1 and sum(seznam[6:15]) == 0 and sum(seznam[0:5]) == 0:
+                    controller.inzerce("end", "hlodavá (" + str(self.varb5.get()) + "/3).")
+                if seznam[5] >= 1 and sum(seznam[6:15]) >= 1 and sum(seznam[0:5]) >= 1:
+                    controller.inzerce("end", ", hlodavá (" + str(self.varb5.get()) + "/3)")
+                if seznam[5] >= 1 and sum(seznam[6:15]) >= 1 and sum(seznam[0:5]) == 0:
+                    controller.inzerce("end", "hlodavá (" + str(self.varb5.get()) + "/3)")
+                if seznam[5] >= 1 and sum(seznam[6:15]) == 0 and sum(seznam[0:5]) >= 1:
+                    controller.inzerce("end", " a hlodavá (" + str(self.varb5.get()) + "/3).")
+                if seznam[6] >= 1 and sum(seznam[7:15]) == 0 and sum(seznam[0:6]) == 0:
+                    controller.inzerce("end", "palčivá - spalující (" + str(self.varb6.get()) + "/3).")
+                if seznam[6] >= 1 and sum(seznam[7:15]) >= 1 and sum(seznam[0:6]) >= 1:
+                    controller.inzerce("end", ", palčivá - spalující (" + str(self.varb6.get()) + "/3)")
+                if seznam[6] >= 1 and sum(seznam[7:15]) >= 1 and sum(seznam[0:6]) == 0:
+                    controller.inzerce("end", "palčivá - spalující (" + str(self.varb6.get()) + "/3)")
+                if seznam[6] >= 1 and sum(seznam[7:15]) == 0 and sum(seznam[0:6]) >= 1:
+                    controller.inzerce("end", " a palčivá - spalující (" + str(self.varb6.get()) + "/3).")
+                if seznam[7] >= 1 and sum(seznam[8:15]) == 0 and sum(seznam[0:7]) == 0:
+                    controller.inzerce("end", "pobolívání (" + str(self.varb7.get()) + "/3).")
+                if seznam[7] >= 1 and sum(seznam[8:15]) >= 1 and sum(seznam[0:7]) >= 1:
+                    controller.inzerce("end", ", pobolívání (" + str(self.varb7.get()) + "/3)")
+                if seznam[7] >= 1 and sum(seznam[8:15]) >= 1 and sum(seznam[0:7]) == 0:
+                    controller.inzerce("end", "pobolívání (" + str(self.varb7.get()) + "/3)")
+                if seznam[7] >= 1 and sum(seznam[8:15]) == 0 and sum(seznam[0:7]) >= 1:
+                    controller.inzerce("end", " a pobolívání (" + str(self.varb7.get()) + "/3).")
+                if seznam[8] >= 1 and sum(seznam[9:15]) == 0 and sum(seznam[0:8]) == 0:
+                    controller.inzerce("end", "tíživá (pocit tlaku) (" + str(self.varb8.get()) + "/3).")
+                if seznam[8] >= 1 and sum(seznam[9:15]) >= 1 and sum(seznam[0:8]) >= 1:
+                    controller.inzerce("end", ", tíživá (pocit tlaku) (" + str(self.varb8.get()) + "/3)")
+                if seznam[8] >= 1 and sum(seznam[9:15]) >= 1 and sum(seznam[0:8]) == 0:
+                    controller.inzerce("end", "tíživá (pocit tlaku) (" + str(self.varb8.get()) + "/3)")
+                if seznam[8] >= 1 and sum(seznam[9:15]) == 0 and sum(seznam[0:8]) >= 1:
+                    controller.inzerce("end", " a tíživá (pocit tlaku) (" + str(self.varb8.get()) + "/3).")
+                if seznam[9] >= 1 and sum(seznam[10:15]) == 0 and sum(seznam[0:9]) == 0:
+                    controller.inzerce("end", "citlivá na dotek (" + str(self.varb9.get()) + "/3).")
+                if seznam[9] >= 1 and sum(seznam[10:15]) >= 1 and sum(seznam[0:9]) >= 1:
+                    controller.inzerce("end", ", citlivá na dotek (" + str(self.varb9.get()) + "/3)")
+                if seznam[9] >= 1 and sum(seznam[10:15]) >= 1 and sum(seznam[0:9]) == 0:
+                    controller.inzerce("end", "citlivá na dotek (" + str(self.varb9.get()) + "/3)")
+                if seznam[9] >= 1 and sum(seznam[10:15]) == 0 and sum(seznam[0:9]) >= 1:
+                    controller.inzerce("end", " a citlivá na dotek (" + str(self.varb9.get()) + "/3).")
+                if seznam[10] >= 1 and sum(seznam[11:15]) == 0 and sum(seznam[0:10]) == 0:
+                    controller.inzerce("end", "řezavá (" + str(self.varb10.get()) + "/3).")
+                if seznam[10] >= 1 and sum(seznam[11:15]) >= 1 and sum(seznam[0:10]) >= 1:
+                    controller.inzerce("end", ", řezavá (" + str(self.varb10.get()) + "/3)")
+                if seznam[10] >= 1 and sum(seznam[11:15]) >= 1 and sum(seznam[0:10]) == 0:
+                    controller.inzerce("end", "řezavá (" + str(self.varb10.get()) + "/3)")
+                if seznam[10] >= 1 and sum(seznam[11:15]) == 0 and sum(seznam[0:10]) >= 1:
+                    controller.inzerce("end", " a řezavá (" + str(self.varb10.get()) + "/3).")
+                if seznam[11] >= 1 and sum(seznam[12:15]) == 0 and sum(seznam[0:11]) == 0:
+                    controller.inzerce("end", "unavující - vyčerpávající (" + str(self.varb11.get()) + "/3).")
+                if seznam[11] >= 1 and sum(seznam[12:15]) >= 1 and sum(seznam[0:11]) >= 1:
+                    controller.inzerce("end", ", unavující - vyčerpávající (" + str(self.varb11.get()) + "/3)")
+                if seznam[11] >= 1 and sum(seznam[12:15]) >= 1 and sum(seznam[0:11]) == 0:
+                    controller.inzerce("end", "unavující - vyčerpávající (" + str(self.varb11.get()) + "/3)")
+                if seznam[11] >= 1 and sum(seznam[12:15]) == 0 and sum(seznam[0:11]) >= 1:
+                    controller.inzerce("end", " a unavující - vyčerpávající (" + str(self.varb11.get()) + "/3).")
+                if seznam[12] >= 1 and sum(seznam[13:15]) == 0 and sum(seznam[0:12]) == 0:
+                    controller.inzerce("end", "působící nevolnost (" + str(self.varb12.get()) + "/3).")
+                if seznam[12] >= 1 and sum(seznam[13:15]) >= 1 and sum(seznam[0:12]) >= 1:
+                    controller.inzerce("end", ", působící nevolnost (" + str(self.varb12.get()) + "/3)")
+                if seznam[12] >= 1 and sum(seznam[13:15]) >= 1 and sum(seznam[0:12]) == 0:
+                    controller.inzerce("end", "působící nevolnost (" + str(self.varb12.get()) + "/3)")
+                if seznam[12] >= 1 and sum(seznam[13:15]) == 0 and sum(seznam[0:12]) >= 1:
+                    controller.inzerce("end", " a působící nevolnost (" + str(self.varb12.get()) + "/3).")
+                if seznam[13] >= 1 and sum(seznam[14:15]) == 0 and sum(seznam[0:13]) == 0:
+                    controller.inzerce("end", "vzbuzující strach (" + str(self.varb13.get()) + "/3).")
+                if seznam[13] >= 1 and sum(seznam[14:15]) >= 1 and sum(seznam[0:13]) >= 1:
+                    controller.inzerce("end", ", vzbuzující strach (" + str(self.varb13.get()) + "/3)")
+                if seznam[13] >= 1 and sum(seznam[14:15]) >= 1 and sum(seznam[0:13]) == 0:
+                    controller.inzerce("end", "vzbuzující strach (" + str(self.varb13.get()) + "/3)")
+                if seznam[13] >= 1 and sum(seznam[14:15]) == 0 and sum(seznam[0:13]) >= 1:
+                    controller.inzerce("end", " a vzbuzující strach (" + str(self.varb13.get()) + "/3).")
+                if seznam[14] >= 1 and sum(seznam[0:14]) == 0:
+                    controller.inzerce("end", "mučivá - krutá (" + str(self.varb14.get()) + "/3).")
+                if seznam[14] >= 1 and sum(seznam[0:14]) >= 1:
+                    controller.inzerce("end", " a mučivá - krutá (" + str(self.varb14.get()) + "/3).")
+
+                controller.show_frame(PageSeven)
+
+            OKbtn1.destroy()
+            OKbtn2 = tk.Button(self, text="OK", command=ok_fce, padx=15, pady=10)
+            OKbtn2.grid(row=16, column=0)
+
+
+
+            label1.destroy()
+            checkbtn0["state"] = "disabled"
+            checkbtn1["state"] = "disabled"
+            checkbtn2["state"] = "disabled"
+            checkbtn3["state"] = "disabled"
+            checkbtn4["state"] = "disabled"
+            checkbtn5["state"] = "disabled"
+            checkbtn6["state"] = "disabled"
+            checkbtn7["state"] = "disabled"
+            checkbtn8["state"] = "disabled"
+            checkbtn9["state"] = "disabled"
+            checkbtn10["state"] = "disabled"
+            checkbtn11["state"] = "disabled"
+            checkbtn12["state"] = "disabled"
+            checkbtn13["state"] = "disabled"
+            checkbtn14["state"] = "disabled"
+            self.varb0 = tk.IntVar()
+            self.varb1 = tk.IntVar()
+            self.varb2 = tk.IntVar()
+            self.varb3 = tk.IntVar()
+            self.varb4 = tk.IntVar()
+            self.varb5 = tk.IntVar()
+            self.varb6 = tk.IntVar()
+            self.varb7 = tk.IntVar()
+            self.varb8 = tk.IntVar()
+            self.varb9 = tk.IntVar()
+            self.varb10 = tk.IntVar()
+            self.varb11 = tk.IntVar()
+            self.varb12 = tk.IntVar()
+            self.varb13 = tk.IntVar()
+            self.varb14 = tk.IntVar()
+            btn0_1 = tk.Radiobutton(self, variable=self.varb0, text=0, value=0, relief="raised", width=10, height=1)
+            btn0_2 = tk.Radiobutton(self, variable=self.varb0, text=1, value=1, relief="raised", width=10, height=1)
+            btn0_3 = tk.Radiobutton(self, variable=self.varb0, text=2, value=2, relief="raised", width=10, height=1)
+            btn0_4 = tk.Radiobutton(self, variable=self.varb0, text=3, value=3, relief="raised", width=10, height=1)
+            btn1_1 = tk.Radiobutton(self, variable=self.varb1, text=0, value=0, relief="raised", width=10, height=1)
+            btn1_2 = tk.Radiobutton(self, variable=self.varb1, text=1, value=1, relief="raised", width=10, height=1)
+            btn1_3 = tk.Radiobutton(self, variable=self.varb1, text=2, value=2, relief="raised", width=10, height=1)
+            btn1_4 = tk.Radiobutton(self, variable=self.varb1, text=3, value=3, relief="raised", width=10, height=1)
+            btn2_1 = tk.Radiobutton(self, variable=self.varb2, text=0, value=0, relief="raised", width=10, height=1)
+            btn2_2 = tk.Radiobutton(self, variable=self.varb2, text=1, value=1, relief="raised", width=10, height=1)
+            btn2_3 = tk.Radiobutton(self, variable=self.varb2, text=2, value=2, relief="raised", width=10, height=1)
+            btn2_4 = tk.Radiobutton(self, variable=self.varb2, text=3, value=3, relief="raised", width=10, height=1)
+            btn3_1 = tk.Radiobutton(self, variable=self.varb3, text=0, value=0, relief="raised", width=10, height=1)
+            btn3_2 = tk.Radiobutton(self, variable=self.varb3, text=1, value=1, relief="raised", width=10, height=1)
+            btn3_3 = tk.Radiobutton(self, variable=self.varb3, text=2, value=2, relief="raised", width=10, height=1)
+            btn3_4 = tk.Radiobutton(self, variable=self.varb3, text=3, value=3, relief="raised", width=10, height=1)
+            btn4_1 = tk.Radiobutton(self, variable=self.varb4, text=0, value=0, relief="raised", width=10, height=1)
+            btn4_2 = tk.Radiobutton(self, variable=self.varb4, text=1, value=1, relief="raised", width=10, height=1)
+            btn4_3 = tk.Radiobutton(self, variable=self.varb4, text=2, value=2, relief="raised", width=10, height=1)
+            btn4_4 = tk.Radiobutton(self, variable=self.varb4, text=3, value=3, relief="raised", width=10, height=1)
+            btn5_1 = tk.Radiobutton(self, variable=self.varb5, text=0, value=0, relief="raised", width=10, height=1)
+            btn5_2 = tk.Radiobutton(self, variable=self.varb5, text=1, value=1, relief="raised", width=10, height=1)
+            btn5_3 = tk.Radiobutton(self, variable=self.varb5, text=2, value=2, relief="raised", width=10, height=1)
+            btn5_4 = tk.Radiobutton(self, variable=self.varb5, text=3, value=3, relief="raised", width=10, height=1)
+            btn6_1 = tk.Radiobutton(self, variable=self.varb6, text=0, value=0, relief="raised", width=10, height=1)
+            btn6_2 = tk.Radiobutton(self, variable=self.varb6, text=1, value=1, relief="raised", width=10, height=1)
+            btn6_3 = tk.Radiobutton(self, variable=self.varb6, text=2, value=2, relief="raised", width=10, height=1)
+            btn6_4 = tk.Radiobutton(self, variable=self.varb6, text=3, value=3, relief="raised", width=10, height=1)
+            btn7_1 = tk.Radiobutton(self, variable=self.varb7, text=0, value=0, relief="raised", width=10, height=1)
+            btn7_2 = tk.Radiobutton(self, variable=self.varb7, text=1, value=1, relief="raised", width=10, height=1)
+            btn7_3 = tk.Radiobutton(self, variable=self.varb7, text=2, value=2, relief="raised", width=10, height=1)
+            btn7_4 = tk.Radiobutton(self, variable=self.varb7, text=3, value=3, relief="raised", width=10, height=1)
+            btn8_1 = tk.Radiobutton(self, variable=self.varb8, text=0, value=0, relief="raised", width=10, height=1)
+            btn8_2 = tk.Radiobutton(self, variable=self.varb8, text=1, value=1, relief="raised", width=10, height=1)
+            btn8_3 = tk.Radiobutton(self, variable=self.varb8, text=2, value=2, relief="raised", width=10, height=1)
+            btn8_4 = tk.Radiobutton(self, variable=self.varb8, text=3, value=3, relief="raised", width=10, height=1)
+            btn9_1 = tk.Radiobutton(self, variable=self.varb9, text=0, value=0, relief="raised", width=10, height=1)
+            btn9_2 = tk.Radiobutton(self, variable=self.varb9, text=1, value=1, relief="raised", width=10, height=1)
+            btn9_3 = tk.Radiobutton(self, variable=self.varb9, text=2, value=2, relief="raised", width=10, height=1)
+            btn9_4 = tk.Radiobutton(self, variable=self.varb9, text=3, value=3, relief="raised", width=10, height=1)
+            btn10_1 = tk.Radiobutton(self, variable=self.varb10, text=0, value=0, relief="raised", width=10, height=1)
+            btn10_2 = tk.Radiobutton(self, variable=self.varb10, text=1, value=1, relief="raised", width=10, height=1)
+            btn10_3 = tk.Radiobutton(self, variable=self.varb10, text=2, value=2, relief="raised", width=10, height=1)
+            btn10_4 = tk.Radiobutton(self, variable=self.varb10, text=3, value=3, relief="raised", width=10, height=1)
+            btn11_1 = tk.Radiobutton(self, variable=self.varb11, text=0, value=0, relief="raised", width=10, height=1)
+            btn11_2 = tk.Radiobutton(self, variable=self.varb11, text=1, value=1, relief="raised", width=10, height=1)
+            btn11_3 = tk.Radiobutton(self, variable=self.varb11, text=2, value=2, relief="raised", width=10, height=1)
+            btn11_4 = tk.Radiobutton(self, variable=self.varb11, text=3, value=3, relief="raised", width=10, height=1)
+            btn12_1 = tk.Radiobutton(self, variable=self.varb12, text=0, value=0, relief="raised", width=10, height=1)
+            btn12_2 = tk.Radiobutton(self, variable=self.varb12, text=1, value=1, relief="raised", width=10, height=1)
+            btn12_3 = tk.Radiobutton(self, variable=self.varb12, text=2, value=2, relief="raised", width=10, height=1)
+            btn12_4 = tk.Radiobutton(self, variable=self.varb12, text=3, value=3, relief="raised", width=10, height=1)
+            btn13_1 = tk.Radiobutton(self, variable=self.varb13, text=0, value=0, relief="raised", width=10, height=1)
+            btn13_2 = tk.Radiobutton(self, variable=self.varb13, text=1, value=1, relief="raised", width=10, height=1)
+            btn13_3 = tk.Radiobutton(self, variable=self.varb13, text=2, value=2, relief="raised", width=10, height=1)
+            btn13_4 = tk.Radiobutton(self, variable=self.varb13, text=3, value=3, relief="raised", width=10, height=1)
+            btn14_1 = tk.Radiobutton(self, variable=self.varb14, text=0, value=0, relief="raised", width=10, height=1)
+            btn14_2 = tk.Radiobutton(self, variable=self.varb14, text=1, value=1, relief="raised", width=10, height=1)
+            btn14_3 = tk.Radiobutton(self, variable=self.varb14, text=2, value=2, relief="raised", width=10, height=1)
+            btn14_4 = tk.Radiobutton(self, variable=self.varb14, text=3, value=3, relief="raised", width=10, height=1)
+
+            seznamBtn = [btn0_1, btn0_2, btn0_3, btn0_4, btn1_1, btn1_2, btn1_3, btn1_4, btn2_1, btn2_2, btn2_3, btn2_4,
+                         btn3_1, btn3_2, btn3_3, btn3_4, btn4_1, btn4_2, btn4_3, btn4_4, btn5_1, btn5_2, btn5_3, btn5_4,
+                         btn6_1, btn6_2, btn6_3, btn6_4, btn7_1, btn7_2, btn7_3, btn7_4, btn8_1, btn8_2, btn8_3, btn8_4,
+                         btn9_1, btn9_2, btn9_3, btn9_4, btn10_1, btn10_2, btn10_3, btn10_4, btn11_1, btn11_2, btn11_3,
+                         btn11_4, btn12_1, btn12_2, btn12_3, btn12_4, btn13_1, btn13_2, btn13_3, btn13_4, btn14_1,
+                         btn14_2, btn14_3, btn14_4]
+
+            for i in range(0, len(seznamVar)):
+                if seznamVar[i].get() == 1:
+                    seznamBtn[(4 * i)].grid(row=i + 1, column=1)
+                    seznamBtn[(4*i)+1].grid(row=i+1, column=2)
+                    seznamBtn[(4 * i) + 2].grid(row=i+1, column=3)
+                    seznamBtn[(4 * i) + 3].grid(row=i+1, column=4)
+
+        OKbtn1 = tk.Button(self, text="OK", command=ok_fce1)
+        OKbtn1.grid(row=8, column=1)
+
+
+
+
+
+        self.var0 = tk.IntVar()
+        self.var1 = tk.IntVar()
+        self.var2 = tk.IntVar()
+        self.var3 = tk.IntVar()
+        self.var4 = tk.IntVar()
+        self.var5 = tk.IntVar()
+        self.var6 = tk.IntVar()
+        self.var7 = tk.IntVar()
+        self.var8 = tk.IntVar()
+        self.var9 = tk.IntVar()
+        self.var10 = tk.IntVar()
+        self.var11 = tk.IntVar()
+        self.var12 = tk.IntVar()
+        self.var13 = tk.IntVar()
+        self.var14 = tk.IntVar()
+
+        seznamVar = [self.var0, self.var1, self.var2, self.var3, self.var4, self.var5, self.var6, self.var7, self.var8, self.var9, self.var10, self.var11, self.var12, self.var13, self.var14]
+
+
+
+
+        checkbtn0 = tk.Checkbutton(self, variable=self.var0, onvalue=1, offvalue=0, text="Pulzující", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn0.grid(row=1, column=0)
+        checkbtn1 = tk.Checkbutton(self, variable=self.var1, onvalue=1, offvalue=0, text="Vystřelující", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn1.grid(row=2, column=0)
+        checkbtn2 = tk.Checkbutton(self, variable=self.var2, onvalue=1, offvalue=0, text="Bodavá", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn2.grid(row=3, column=0)
+        checkbtn3 = tk.Checkbutton(self, variable=self.var3, onvalue=1, offvalue=0, text="Ostrá", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn3.grid(row=4, column=0)
+        checkbtn4 = tk.Checkbutton(self, variable=self.var4, onvalue=1, offvalue=0, text="Křečovitá", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn4.grid(row=5, column=0)
+        checkbtn5 = tk.Checkbutton(self, variable=self.var5, onvalue=1, offvalue=0, text="Hlodavá", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn5.grid(row=6, column=0)
+        checkbtn6 = tk.Checkbutton(self, variable=self.var6, onvalue=1, offvalue=0, text="Palčivá - spalující", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn6.grid(row=7, column=0)
+        checkbtn7 = tk.Checkbutton(self, variable=self.var7, onvalue=1, offvalue=0, text="Pobolívání", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn7.grid(row=8, column=0)
+        checkbtn8 = tk.Checkbutton(self, variable=self.var8, onvalue=1, offvalue=0, text="Tíživá (pocit tlaku)", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn8.grid(row=9, column=0)
+        checkbtn9 = tk.Checkbutton(self, variable=self.var9, onvalue=1, offvalue=0, text="Citlivá na dotek", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn9.grid(row=10, column=0)
+        checkbtn10 = tk.Checkbutton(self, variable=self.var10, onvalue=1, offvalue=0, text="Řezavá", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn10.grid(row=11, column=0)
+        checkbtn11 = tk.Checkbutton(self, variable=self.var11, onvalue=1, offvalue=0, text="Unavující - vyčerpávající", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn11.grid(row=12, column=0)
+        checkbtn12 = tk.Checkbutton(self, variable=self.var12, onvalue=1, offvalue=0, text="Působící nevolnost", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn12.grid(row=13, column=0)
+        checkbtn13 = tk.Checkbutton(self, variable=self.var13, onvalue=1, offvalue=0, text="Vzbuzující strach", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn13.grid(row=14, column=0)
+        checkbtn14 = tk.Checkbutton(self, variable=self.var14, onvalue=1, offvalue=0, text="Mučivá - krutá", relief="raised", width=50, anchor="w", font="Times")
+        checkbtn14.grid(row=15, column=0)
+
+
+
+class PageSix(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self, text="Popište prosím,  jaké jste měl(a) minulý týden bolesti? (označte na každém řádku jeden čtvereček)", font="Times")
+        label.grid(row=0, column=0, columnspan=4)
+        label0 = tk.Label(self, text="Pulzující", relief="raised", width=50, pady=0, height=1, font="Times")
+        label0.grid(row=1, column=0)
+        label1 = tk.Label(self, text="Vystřelující", relief="raised", width=50, pady=0, height=1, font="Times")
+        label1.grid(row=2, column=0)
+        label2 = tk.Label(self, text="Bodavá", relief="raised", width=50, pady=0, height=1, font="Times")
+        label2.grid(row=3, column=0)
+        label3 = tk.Label(self, text="Ostrá", relief="raised", width=50, pady=0, height=1, font="Times")
+        label3.grid(row=4, column=0)
+        label4 = tk.Label(self, text="Křečovitá", relief="raised", width=50, pady=0, height=1, font="Times")
+        label4.grid(row=5, column=0)
+        label5 = tk.Label(self, text="Hlodavá", relief="raised", width=50, pady=0, height=1, font="Times")
+        label5.grid(row=6, column=0)
+        label6 = tk.Label(self, text="Palčivá - spalující", relief="raised", width=50, pady=0, height=1, font="Times")
+        label6.grid(row=7, column=0)
+        label7 = tk.Label(self, text="Pobolívání", relief="raised", width=50, pady=0, height=1, font="Times")
+        label7.grid(row=8, column=0)
+        label8 = tk.Label(self, text="Tíživá (pocit tlaku)", relief="raised", width=50, pady=0, height=1, font="Times")
+        label8.grid(row=9, column=0)
+        label9 = tk.Label(self, text="Citlivá na dotek", relief="raised", width=50, pady=0, height=1, font="Times")
+        label9.grid(row=10, column=0)
+        label10 = tk.Label(self, text="Řezavá", relief="raised", width=50, pady=0, height=1, font="Times")
+        label10.grid(row=11, column=0)
+        label11 = tk.Label(self, text="Unavující - vyčerpávající", relief="raised", width=50, pady=0, height=1, font="Times")
+        label11.grid(row=12, column=0)
+        label12 = tk.Label(self, text="Působící nevolnost", relief="raised", width=50, pady=0, height=1, font="Times")
+        label12.grid(row=13, column=0)
+        label13 = tk.Label(self, text="Vzbuzující strach", relief="raised", width=50, pady=0, height=1, font="Times")
+        label13.grid(row=14, column=0)
+        label14 = tk.Label(self, text="Mučivá - krutá", relief="raised", width=50, pady=0, height=1, font="Times")
+        label14.grid(row=15, column=0)
+
+        self.var0 = tk.IntVar()
+        self.var1 = tk.IntVar()
+        self.var2 = tk.IntVar()
+        self.var3 = tk.IntVar()
+        self.var4 = tk.IntVar()
+        self.var5 = tk.IntVar()
+        self.var6 = tk.IntVar()
+        self.var7 = tk.IntVar()
+        self.var8 = tk.IntVar()
+        self.var9 = tk.IntVar()
+        self.var10 = tk.IntVar()
+        self.var11 = tk.IntVar()
+        self.var12 = tk.IntVar()
+        self.var13 = tk.IntVar()
+        self.var14 = tk.IntVar()
+
+        btn0 = tk.Radiobutton(self, variable=self.var0, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn0.grid(row=1, column=1)
+        btn0 = tk.Radiobutton(self, variable=self.var0, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn0.grid(row=1, column=2)
+        btn0 = tk.Radiobutton(self, variable=self.var0, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn0.grid(row=1, column=3)
+        btn0 = tk.Radiobutton(self, variable=self.var0, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn0.grid(row=1, column=4)
+        btn1 = tk.Radiobutton(self, variable=self.var1, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn1.grid(row=2, column=1)
+        btn1 = tk.Radiobutton(self, variable=self.var1, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn1.grid(row=2, column=2)
+        btn1 = tk.Radiobutton(self, variable=self.var1, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn1.grid(row=2, column=3)
+        btn1 = tk.Radiobutton(self, variable=self.var1, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn1.grid(row=2, column=4)
+        btn2 = tk.Radiobutton(self, variable=self.var2, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn2.grid(row=3, column=1)
+        btn2 = tk.Radiobutton(self, variable=self.var2, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn2.grid(row=3, column=2)
+        btn2 = tk.Radiobutton(self, variable=self.var2, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn2.grid(row=3, column=3)
+        btn2 = tk.Radiobutton(self, variable=self.var2, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn2.grid(row=3, column=4)
+        btn3 = tk.Radiobutton(self, variable=self.var3, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn3.grid(row=4, column=1)
+        btn3 = tk.Radiobutton(self, variable=self.var3, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn3.grid(row=4, column=2)
+        btn3 = tk.Radiobutton(self, variable=self.var3, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn3.grid(row=4, column=3)
+        btn3 = tk.Radiobutton(self, variable=self.var3, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn3.grid(row=4, column=4)
+        btn4 = tk.Radiobutton(self, variable=self.var4, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn4.grid(row=5, column=1)
+        btn4 = tk.Radiobutton(self, variable=self.var4, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn4.grid(row=5, column=2)
+        btn4 = tk.Radiobutton(self, variable=self.var4, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn4.grid(row=5, column=3)
+        btn4 = tk.Radiobutton(self, variable=self.var4, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn4.grid(row=5, column=4)
+        btn5 = tk.Radiobutton(self, variable=self.var5, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn5.grid(row=6, column=1)
+        btn5 = tk.Radiobutton(self, variable=self.var5, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn5.grid(row=6, column=2)
+        btn5 = tk.Radiobutton(self, variable=self.var5, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn5.grid(row=6, column=3)
+        btn5 = tk.Radiobutton(self, variable=self.var5, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn5.grid(row=6, column=4)
+        btn6 = tk.Radiobutton(self, variable=self.var6, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn6.grid(row=7, column=1)
+        btn6 = tk.Radiobutton(self, variable=self.var6, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn6.grid(row=7, column=2)
+        btn6 = tk.Radiobutton(self, variable=self.var6, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn6.grid(row=7, column=3)
+        btn6 = tk.Radiobutton(self, variable=self.var6, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn6.grid(row=7, column=4)
+        btn7 = tk.Radiobutton(self, variable=self.var7, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn7.grid(row=8, column=1)
+        btn7 = tk.Radiobutton(self, variable=self.var7, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn7.grid(row=8, column=2)
+        btn7 = tk.Radiobutton(self, variable=self.var7, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn7.grid(row=8, column=3)
+        btn7 = tk.Radiobutton(self, variable=self.var7, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn7.grid(row=8, column=4)
+        btn8 = tk.Radiobutton(self, variable=self.var8, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn8.grid(row=9, column=1)
+        btn8 = tk.Radiobutton(self, variable=self.var8, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn8.grid(row=9, column=2)
+        btn8 = tk.Radiobutton(self, variable=self.var8, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn8.grid(row=9, column=3)
+        btn8 = tk.Radiobutton(self, variable=self.var8, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn8.grid(row=9, column=4)
+        btn9 = tk.Radiobutton(self, variable=self.var9, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn9.grid(row=10, column=1)
+        btn9 = tk.Radiobutton(self, variable=self.var9, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn9.grid(row=10, column=2)
+        btn9 = tk.Radiobutton(self, variable=self.var9, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn9.grid(row=10, column=3)
+        btn9 = tk.Radiobutton(self, variable=self.var9, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn9.grid(row=10, column=4)
+        btn10 = tk.Radiobutton(self, variable=self.var10, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn10.grid(row=11, column=1)
+        btn10 = tk.Radiobutton(self, variable=self.var10, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn10.grid(row=11, column=2)
+        btn10 = tk.Radiobutton(self, variable=self.var10, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn10.grid(row=11, column=3)
+        btn10 = tk.Radiobutton(self, variable=self.var10, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn10.grid(row=11, column=4)
+        btn11 = tk.Radiobutton(self, variable=self.var11, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn11.grid(row=12, column=1)
+        btn11 = tk.Radiobutton(self, variable=self.var11, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn11.grid(row=12, column=2)
+        btn11 = tk.Radiobutton(self, variable=self.var11, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn11.grid(row=12, column=3)
+        btn11 = tk.Radiobutton(self, variable=self.var11, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn11.grid(row=12, column=4)
+        btn12 = tk.Radiobutton(self, variable=self.var12, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn12.grid(row=13, column=1)
+        btn12 = tk.Radiobutton(self, variable=self.var12, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn12.grid(row=13, column=2)
+        btn12 = tk.Radiobutton(self, variable=self.var12, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn12.grid(row=13, column=3)
+        btn12 = tk.Radiobutton(self, variable=self.var12, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn12.grid(row=13, column=4)
+        btn13 = tk.Radiobutton(self, variable=self.var13, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn13.grid(row=14, column=1)
+        btn13 = tk.Radiobutton(self, variable=self.var13, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn13.grid(row=14, column=2)
+        btn13 = tk.Radiobutton(self, variable=self.var13, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn13.grid(row=14, column=3)
+        btn13 = tk.Radiobutton(self, variable=self.var13, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn13.grid(row=14, column=4)
+        btn14 = tk.Radiobutton(self, variable=self.var14, text=0, value=1, relief="raised", pady=0, width=10, height=1)
+        btn14.grid(row=15, column=1)
+        btn14 = tk.Radiobutton(self, variable=self.var14, text=1, value=2, relief="raised", pady=0, width=10, height=1)
+        btn14.grid(row=15, column=2)
+        btn14 = tk.Radiobutton(self, variable=self.var14, text=2, value=3, relief="raised", pady=0, width=10, height=1)
+        btn14.grid(row=15, column=3)
+        btn14 = tk.Radiobutton(self, variable=self.var14, text=3, value=4, relief="raised", pady=0, width=10, height=1)
+        btn14.grid(row=15, column=4)
+
+class PageSeven(tk.Frame):
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        label = tk.Label(self, text="Vyplňte krátký sociální dotazník")
+        label.grid(row=0, column=0)
+
+        self.var0 = tk.IntVar()
+        self.var0.set(-1)
+
+        self.var1 = tk.IntVar()
+        self.var2 = tk.IntVar()
+        self.var3 = tk.IntVar()
+        self.var4 = tk.IntVar()
+        self.var5 = tk.IntVar()
+        self.var6 = tk.IntVar()
+        self.var7 = tk.IntVar()
+        self.var8 =tk.IntVar()
+
+        btn0_1 = tk.Radiobutton(self, text = "Svobodný", variable=self.var0, value=0)
+        btn0_1.grid(row=1, column=1)
+        btn0_2 = tk.Radiobutton(self, text = "Ženatý", variable=self.var0, value=1)
+        btn0_2.grid(row=2, column=1)
+        btn0_3 = tk.Radiobutton(self, text="Rozvedený", variable=self.var0, value=2)
+        btn0_3.grid(row=3, column=1)
+        btn0_2 = tk.Radiobutton(self, text="Vdovec", variable=self.var0, value=3)
+        btn0_2.grid(row=4, column=1)
+
+        seznamVar = [self.var1, self.var2, self.var3, self.var4, self.var5, self.var6, self.var7, self.var8]
+        def enter_fce():
+            seznamBtn = []
+            for i in (range(0, int(pocet_deti.get()))):
+                seznamBtn.append(tk.Radiobutton(self, text="Chlapec", variable=seznamVar[i], value=1))
+                seznamBtn.append(tk.Radiobutton(self, text="Dívka", variable=seznamVar[i], value=2))
+                seznamBtn[i+i].grid(row=6+i, column=1)
+                seznamBtn[i+i+1].grid(row =6+i, column =3)
+
+        detiLabel = tk.Label(self, text="Zadejte do políčka počet Vašich vlastních dětí (Enter)")
+        detiLabel.grid(row=5, column=0)
+        pocet_deti = tk.Entry(self, width=5)
+        pocet_deti.grid(row=5, column =1)
+        pocet_deti.insert("end", "0")
+        pocet_deti.bind("<Return>", lambda r: enter_fce())
+
+
+
+
+
 
 
 

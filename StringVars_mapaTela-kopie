@@ -59,3 +59,5 @@ var53 = tk.IntVar()
 var54 = tk.IntVar()
 var55 = tk.IntVar()
 var56 = tk.IntVar()
+
+seznamBtn = [btn0_1, btn0_2, btn0_3, btn0_4, btn1_1, btn1_2, btn1_3, btn1_4, btn2_1, btn2_2, btn2_3, btn2_4, btn3_1, btn3_2, btn3_3, btn3_4, btn4_1, btn4_2, btn4_3, btn4_4, btn5_1, btn5_2, btn5_3, btn5_4, btn6_1, btn6_2, btn6_3, btn6_4, btn7_1, btn7_2, btn7_3, btn7_4, btn8_1, btn8_2, btn8_3, btn8_4, btn9_1, btn9_2, btn9_3, btn9_4, btn10_1, btn10_2, btn10_3, btn10_4, btn11_1, btn11_2, btn11_3, btn11_4, btn12_1, btn12_2, btn12_3, btn12_4, btn13_1, btn13_2, btn13_3, btn13_4, btn14_1, btn14_2, btn14_3, btn14_4]
